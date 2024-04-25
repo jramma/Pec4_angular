@@ -1,6 +1,16 @@
-<h1>Ecommerce</h1>
-<ul>
+<nav class="p-4 h-12 border-b-2 border-white flex justify-between items-center">
+  <div>
+    <h1 class="font-sans text-xl">E-Commerce</h1>
+  </div>
+  <div>
+    <p>Made with ❤️ by <a class="text-purple-300" href="https://www.jramma.com/">jramma</a></p>
+  </div>
+</nav>
+
+<section>
+  <ul class="grid grid-cols-4 gap-3">
     <li *ngFor="let article of articles">
-        <app-article-item></app-article-item>
+      <app-article-item></app-article-item>
     </li>
-</ul>
+  </ul>
+</section>
