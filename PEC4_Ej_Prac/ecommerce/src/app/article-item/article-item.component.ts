@@ -2,16 +2,16 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-article-item',
+  standalone: true,
+  imports: [],
   templateUrl: './article-item.component.html',
-  styleUrls: ['./article-item.component.css']
+  styleUrl: './article-item.component.css'
 })
 export class ArticleItemComponent implements OnInit {
   article = {
-    name: 'Artículo de prueba',
+    name: 'Producto',
     price: 100,
-    imageUrl: 'assets/imagen.jpg',
-    isOnSale: true,
-    quantityInCart: 10
+    quantity: 0
   };
 
   constructor() { }
@@ -19,4 +19,13 @@ export class ArticleItemComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  addQuantity(): void {
+    this.article.quantity++;
+  }
+
+  removeQuantity(): void {
+    if (this.article.quantity > 0) {
+      this.article.quantity--;
+    }
+  }
 }

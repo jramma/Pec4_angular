@@ -1,0 +1,9 @@
+<section class="text-white">
+  <h2>{{ article.name }}</h2>
+  <p>Precio: {{ article.price }}</p>
+  <p>Cantidad: {{ article.quantity }}</p>
+  <button (click)="addQuantity()">Añadir cantidad</button>
+  <button (click)="removeQuantity()" [disabled]="article.quantity === 0">
+    Quitar cantidad
+  </button>
+</section>
