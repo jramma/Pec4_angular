@@ -11,21 +11,19 @@ import { ArticleItemComponent } from './article-item/article-item.component';
 })
 export class AppComponent {
   title = 'ecommerce';
-  articles = [
-    {
-      name: 'Producto Falso 1',
-      price: 100,
-      quantity: 0
-    },
-    {
-      name: 'Producto Falso 2',
-      price: 200,
-      quantity: 0
-    },
-    {
-      name: 'Producto Falso 3',
-      price: 300,
-      quantity: 0
-    }
-  ];
+  articles = Array.from({ length: 12 }, (_, i) => ({
+    name: `Producto ${i + 1}`,
+    imageUrl: `https://picsum.photos/seed/${i + 1}/200`, // Genera una URL de imagen aleatoria
+    price: +(Math.random() * 49 + 1).toFixed(2), // Genera un precio aleatorio entre 1 y 50 con decimales
+    isOnSale: i % 2 === 0,
+    quantityInCart: 1,
+  }));
 }
+
+type Article = {
+  name: string;
+  imageUrl: string;
+  price: number;
+  isOnSale: boolean;
+  quantityInCart: number;
+};

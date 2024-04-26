@@ -1,15 +1,48 @@
 <section class="text-white flex flex-col gap-6 p-2">
-  <h2>{{ article.name }}</h2>
-  <p>Precio: {{ article.price }}</p>
-  <p>Cantidad: {{ article.quantity }}</p>
-  <button (click)="addQuantity()" class="text-green-300">
-    Añadir cantidad
-  </button>
-  <button
-    class="text-red-300"
-    (click)="removeQuantity()"
-    [disabled]="article.quantity === 0"
+  <div class="flex justify-between">
+    <div class="w-1/2">
+      <h2>{{ article.name }}</h2>
+      <p>Precio: {{ article.price }} €</p>
+      <div class="flex items-center gap-4">
+        <img class="h-6" src="assets/shop.svg" /> :
+        <p>{{ article.quantityInCart }}</p>
+      </div>
+      <p class="text-sm text-green-300" *ngIf="article.isOnSale">
+        Esta en venta
+      </p>
+      <p class="text-sm text-red-300" *ngIf="!article.isOnSale">
+        No esta en venta
+      </p>
+    </div>
+    <img
+      class="w-[45%] rounded-3xl object-cover"
+      [src]="article.imageUrl"
+      alt="Imagen del articulo"
+    />
+  </div>
+  <div
+    *ngIf="article.isOnSale"
+    class="flex flex-row p-6 justify-between items-center"
   >
-    Quitar cantidad
-  </button>
+    <button
+      (click)="addQuantity()"
+      class="w-1/4 relative bg-gray-300 text-blue-300"
+    >
+      +1
+    </button>
+    <button
+      class="w-1/4 relative bg-gray-300 text-red-300"
+      (click)="removeQuantity()"
+      [disabled]="article.quantityInCart === 0"
+    >
+      -1
+    </button>
+  </div>
 </section>
+<!-- type Article = {
+  name: string;
+  imageUrl: string;
+  price: number;
+  isOnSale: boolean;
+  quantityInCart: number;
+}; -->

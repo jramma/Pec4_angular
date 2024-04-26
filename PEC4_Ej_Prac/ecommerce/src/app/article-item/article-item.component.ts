@@ -1,31 +1,39 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { CommonModule } from '@angular/common'; // Importa CommonModule aquí
 
 @Component({
   selector: 'app-article-item',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './article-item.component.html',
-  styleUrl: './article-item.component.css'
+  styleUrl: './article-item.component.css',
 })
 export class ArticleItemComponent implements OnInit {
-  article = {
-    name: 'Producto',
-    price: 100,
-    quantity: 0
+  @Input() article: Article = {
+    name: '',
+    imageUrl: '',
+    price: 0,
+    isOnSale: false,
+    quantityInCart: 0,
   };
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   addQuantity(): void {
-    this.article.quantity++;
+    this.article.quantityInCart++;
   }
-
   removeQuantity(): void {
-    if (this.article.quantity > 0) {
-      this.article.quantity--;
+    if (this.article.quantityInCart > 0) {
+      this.article.quantityInCart--;
     }
   }
 }
+type Article = {
+  name: string;
+  imageUrl: string;
+  price: number;
+  isOnSale: boolean;
+  quantityInCart: number;
+};
