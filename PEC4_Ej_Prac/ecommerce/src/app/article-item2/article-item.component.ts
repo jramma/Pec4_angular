@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -16,6 +16,7 @@ export class ArticleItemComponent implements OnInit {
     isOnSale: false,
     quantityInCart: 0,
   };
+  @Output() quantityChange = new EventEmitter<ArticleQuantityChange>();
 
   constructor() {}
 
@@ -37,3 +38,7 @@ type Article = {
   isOnSale: boolean;
   quantityInCart: number;
 };
+interface ArticleQuantityChange {
+  article: Article;
+  change: number;
+}
