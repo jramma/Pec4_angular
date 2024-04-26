@@ -1,0 +1,8 @@
+<section class="flex flex-col gap-6 border border-red-300 p-6">
+  <h2>Article_list</h2>
+  <div class="flex flex-row">
+    <div *ngFor="let article of articles">
+      <app-article-item [article]="article"></app-article-item>
+    </div>
+  </div>
+</section>

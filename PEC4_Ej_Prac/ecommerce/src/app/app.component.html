@@ -3,14 +3,26 @@
     <h1 class="font-sans text-xl">E-Commerce</h1>
   </div>
   <div>
-    <p>Made with ❤️ by <a class="text-purple-300" href="https://www.jramma.com/">jramma</a></p>
+    <a href="#grid">Article layout</a>
+    <a href="#list">Article list</a>
+  </div>
+  <div>
+    <p>
+      Made with ❤️ by
+      <a class="text-purple-300" href="https://www.jramma.com/">jramma</a>
+    </p>
   </div>
 </nav>
 
-<section>
-    <ul class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
-        <li *ngFor="let article of articles">
-            <app-article-item [article]="article"></app-article-item>
-        </li>
-    </ul>
+<section id="grid" class="flex flex-col gap-12">
+  <ul
+    class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3"
+  >
+    <li *ngFor="let article of articles">
+      <app-article-item [article]="article"></app-article-item>
+    </li>
+  </ul>
+  <div id="list">
+    <app-article-list></app-article-list>
+  </div>
 </section>
