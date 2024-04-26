@@ -16,7 +16,7 @@ export class AppComponent {
     imageUrl: `https://picsum.photos/seed/${i + 1}/200`, // Genera una URL de imagen aleatoria
     price: +(Math.random() * 49 + 1).toFixed(2), // Genera un precio aleatorio entre 1 y 50 con decimales
     isOnSale: i % 2 === 0,
-    quantityInCart: 1,
+    quantityInCart: 0,
   }));
 }
 
